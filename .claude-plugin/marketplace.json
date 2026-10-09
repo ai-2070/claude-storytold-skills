@@ -1,0 +1,16 @@
+{
+  "name": "storytold-skills",
+  "owner": { "name": "V" },
+  "metadata": {
+    "description": "Claude Code skills for the storytold Crafting Apps"
+  },
+  "plugins": [
+    {
+      "name": "storytold",
+      "source": "./plugins/storytold",
+      "description": "Pick, install and use the twelve storytold Crafting Apps (VectorCraft, PhotoCraft, LightCraft, EffectCraft, FilmCraft, DesignCraft, PdfCraft, WordCraft, GridCraft, DeckCraft, SoundCraft, CADCraft) through their MCP servers and CLIs.",
+      "version": "0.1.0",
+      "category": "creative"
+    }
+  ]
+}
