@@ -1,0 +1,97 @@
+README.md
+  s_b9e9bff4731d74::t_9afcfedb7e9f2f 1-121
+.claude-plugin/marketplace.json
+  s_b9e9bff4731d74::t_4e62fba10c54fd 1-16
+.gitignore
+  s_b9e9bff4731d74::t_d9aad2acea4f90 1
+LICENSE
+  s_b9e9bff4731d74::t_c5e682bc26c869 1-21
+plugins/storytold/.claude-plugin/plugin.json
+  s_b9e9bff4731d74::t_ce672ee123efa6 1-10
+plugins/storytold/skills/cadcraft/SKILL.md
+  s_b9e9bff4731d74::t_622c48692092d2 1-207
+plugins/storytold/skills/cadcraft/references/commands.md
+  s_b9e9bff4731d74::t_4b6088b5e9aa45 1-337
+plugins/storytold/skills/deckcraft/SKILL.md
+  s_b9e9bff4731d74::t_10e46f617a86f1 1-211
+plugins/storytold/skills/deckcraft/references/catalogs.md
+  s_b9e9bff4731d74::t_023c079100027a 1-41
+plugins/storytold/skills/deckcraft/references/commands.md
+  s_b9e9bff4731d74::t_0aab4f116f1727 1-302
+plugins/storytold/skills/designcraft/SKILL.md
+  s_b9e9bff4731d74::t_a0194511509883 1-234
+plugins/storytold/skills/designcraft/references/commands.md
+  s_b9e9bff4731d74::t_d52351a6a8915d 1-637
+plugins/storytold/skills/effectcraft/SKILL.md
+  s_b9e9bff4731d74::t_ef807c46af5192 1-238
+plugins/storytold/skills/effectcraft/references/commands.md
+  s_b9e9bff4731d74::t_723c85223e61fc 1-827
+plugins/storytold/skills/effectcraft/references/effects.md
+  s_b9e9bff4731d74::t_f98b20f8fef9ea 1-372
+plugins/storytold/skills/filmcraft/SKILL.md
+  s_b9e9bff4731d74::t_2317ae253a8fe8 1-214
+plugins/storytold/skills/filmcraft/references/commands.md
+  s_b9e9bff4731d74::t_8db07857b356d2 1-798
+plugins/storytold/skills/filmcraft/references/effects.md
+  s_b9e9bff4731d74::t_f87c7570de1d1e 1-437
+plugins/storytold/skills/gridcraft/SKILL.md
+  s_b9e9bff4731d74::t_abe14fee3ffe0a 1-213
+plugins/storytold/skills/gridcraft/references/commands.md
+  s_b9e9bff4731d74::t_c01ab5b578b4c9 1-391
+plugins/storytold/skills/gridcraft/references/functions.md
+  s_b9e9bff4731d74::t_8cb596d26fe4f5 1-545
+plugins/storytold/skills/lightcraft/SKILL.md
+  s_b9e9bff4731d74::t_0b4eab734eceb8 1-262
+plugins/storytold/skills/lightcraft/references/commands.md
+  s_b9e9bff4731d74::t_6cac20368100ac 1-342
+plugins/storytold/skills/lightcraft/references/controls.md
+  s_b9e9bff4731d74::t_e012bcb4ce9a78 1-160
+plugins/storytold/skills/pdfcraft/SKILL.md
+  s_b9e9bff4731d74::t_5dfbe6b3bae82f 1-251
+plugins/storytold/skills/pdfcraft/references/actions-and-commands.md
+  s_b9e9bff4731d74::t_cfeffaf4a6e4ad 1-212
+plugins/storytold/skills/pdfcraft/references/tools.md
+  s_b9e9bff4731d74::t_2ba8c2d0ed513f 1-939
+plugins/storytold/skills/photocraft/SKILL.md
+  s_b9e9bff4731d74::t_da4ee139a50056 1-243
+plugins/storytold/skills/photocraft/references/commands.md
+  s_b9e9bff4731d74::t_17115c4e922441 1-1074
+plugins/storytold/skills/soundcraft/SKILL.md
+  s_b9e9bff4731d74::t_c32b1e6c3b0cf8 1-232
+plugins/storytold/skills/soundcraft/references/commands.md
+  s_b9e9bff4731d74::t_9d53da5c669c00 1-520
+plugins/storytold/skills/soundcraft/references/plugins.md
+  s_b9e9bff4731d74::t_f90242dd9ace62 1-285
+plugins/storytold/skills/storytold-install/SKILL.md
+  s_b9e9bff4731d74::t_f77e1dde4e2b4b 1-127
+plugins/storytold/skills/storytold-install/scripts/storytold_tools.py
+  s_b9e9bff4731d74::t_a8569c070cfcba 1-601
+plugins/storytold/skills/storytold/SKILL.md
+  s_b9e9bff4731d74::t_21482cf7429aec 1-51
+plugins/storytold/skills/vectorcraft/SKILL.md
+  s_b9e9bff4731d74::t_c885894aae796b 1-207
+plugins/storytold/skills/vectorcraft/references/commands.md
+  s_b9e9bff4731d74::t_cc3080c3f36f14 1-849
+plugins/storytold/skills/vectorcraft/references/effects.md
+  s_b9e9bff4731d74::t_bbd53f400b518c 1-82
+plugins/storytold/skills/wordcraft/SKILL.md
+  s_b9e9bff4731d74::t_47f8bbe4c2b171 1-228
+plugins/storytold/skills/wordcraft/references/commands.md
+  s_b9e9bff4731d74::t_4a0de49ac7fd28 1-463
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a8cd503e76dffdbb475432d007a7dd18e3e50e47",
+  "prompts": {},
+  "sessions": {
+    "s_b9e9bff4731d74": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dde7f163-fdfb-4a3f-91b5-4c1c5ce6ec95",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "LZL0 <12474488+LZL0@users.noreply.github.com>"
+    }
+  }
+}
