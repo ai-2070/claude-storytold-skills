@@ -1,4 +1,4 @@
-# storytold skills for Claude Code
+# Storytold skills for Claude Code
 
 A [Claude Code](https://code.claude.com) plugin for the [storytold Crafting Apps](https://github.com/storytold):
 twelve free, open-source creative tools written in Rust. Each app ships a desktop app, a CLI and an MCP server.
