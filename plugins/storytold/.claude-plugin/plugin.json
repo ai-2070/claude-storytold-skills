@@ -1,7 +1,7 @@
 {
   "name": "storytold",
-  "version": "0.1.0",
-  "description": "Skills for the storytold Crafting Apps: pick the right creative app for a task, install it with its MCP server, and use it well. Covers vector art, photo editing, RAW development, motion graphics, video, layout, PDF, documents, spreadsheets, slides, audio and CAD.",
+  "version": "0.2.0",
+  "description": "Skills for the storytold Crafting Apps: pick the right creative app for a task, install it with its MCP server, and use it well. Covers vector art, photo editing, RAW development, motion graphics, video, layout, PDF, documents, spreadsheets, slides, audio, CAD and UI design.",
   "author": { "name": "V" },
   "homepage": "https://github.com/ai-2070/claude-storytold-skills",
   "repository": "https://github.com/ai-2070/claude-storytold-skills",

@@ -1,7 +1,7 @@
 # Storytold skills for Claude Code
 
 A [Claude Code](https://code.claude.com) plugin for the [storytold Crafting Apps](https://github.com/storytold):
-twelve free, open-source creative tools written in Rust. Each app ships a desktop app, a CLI and an MCP server.
+thirteen free, open-source creative tools written in Rust. Each app ships a desktop app, a CLI and an MCP server.
 
 The `storytold` plugin gives Claude three things:
 
@@ -51,10 +51,11 @@ creative task.
 | [`deckcraft`](plugins/storytold/skills/deckcraft/SKILL.md) | DeckCraft (PowerPoint-style) | Slide decks, .pptx |
 | [`soundcraft`](plugins/storytold/skills/soundcraft/SKILL.md) | SoundCraft (Pro Tools-style) | Podcast editing, mixing, mastering, sound design |
 | [`cadcraft`](plugins/storytold/skills/cadcraft/SKILL.md) | CADCraft (AutoCAD-style) | Floor plans, technical drawings, DXF / DWG |
+| [`figcraft`](plugins/storytold/skills/figcraft/SKILL.md) | FigCraft (Figma-style) | App and web screens, components, design tokens, prototypes, .fig |
 
 Claude loads a skill when a task matches its description. You can also invoke one directly, e.g.
-`/storytold:vectorcraft`. Every session pays about 1.9k tokens for the skill list. A skill's full instructions
-(about 1.4k–7.7k tokens) load only when that skill is used. Each app skill has a `references/` folder with the
+`/storytold:vectorcraft`. Every session pays about 2.2k tokens for the skill list. A skill's full instructions
+(about 1.6k–10k tokens) load only when that skill is used. Each app skill has a `references/` folder with the
 app's full command, effect or function catalog, generated from the live MCP server. Claude greps those files
 rather than reading them whole.
 
@@ -63,7 +64,7 @@ rather than reading them whole.
 The helper needs Python 3.9+ and nothing else:
 
 ```bash
-python plugins/storytold/skills/storytold-install/scripts/storytold_tools.py setup            # all twelve apps
+python plugins/storytold/skills/storytold-install/scripts/storytold_tools.py setup            # all thirteen apps
 python plugins/storytold/skills/storytold-install/scripts/storytold_tools.py setup vectorcraft photocraft
 ```
 
@@ -83,7 +84,8 @@ python plugins/storytold/skills/storytold-install/scripts/storytold_tools.py set
 | On PATH | `%LOCALAPPDATA%\storytold\bin` | `~/.local/bin` | `~/.local/bin` |
 
 PhotoCraft is registered with file-access roots (your home folder), because without them it can't open or save
-files. LightCraft gets a persistent library, because otherwise its catalog lives in memory only. See
+files. LightCraft gets a persistent library, because otherwise its catalog lives in memory only. VectorCraft runs
+`--headless`, so it never attaches to another app listening on port 7979. See
 [`storytold-install/SKILL.md`](plugins/storytold/skills/storytold-install/SKILL.md) for the other subcommands
 (`status`, `install`, `path`, `verify`, `register`) and the environment variables that change locations.
 
@@ -93,8 +95,8 @@ Every recipe marked **(tested)** was run against the released apps through their
 outputs were checked by rendering and looking at them, by reading values back, or by measuring them with
 ffprobe or ffmpeg. The versions tested were:
 
-vectorcraft 0.7.0 · photocraft 0.5.0 · lightcraft 0.4.0 · effectcraft 0.6.0 · filmcraft 0.4.0 · designcraft 0.4.0 ·
-pdfcraft 0.4.0 · wordcraft 0.3.0 · gridcraft 0.3.0 · deckcraft 0.3.0 · soundcraft 0.3.0 · cadcraft 0.3.0
+vectorcraft 0.10.0 · photocraft 0.8.2 · lightcraft 0.7.1 · effectcraft 0.9.2 · filmcraft 0.7.2 · designcraft 0.7.1 ·
+pdfcraft 0.7.1 · wordcraft 0.6.1 · gridcraft 0.6.1 · deckcraft 0.6.1 · soundcraft 0.6.1 · cadcraft 0.6.2 · figcraft 0.5.1
 
 Bugs and quirks found along the way, with their exact error text, are in each skill's **Pitfalls** section.
 Each skill also says what wasn't tested.

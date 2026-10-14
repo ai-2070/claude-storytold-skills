@@ -1,12 +1,12 @@
 ---
 name: storytold
-description: "Pick the right storytold Crafting App for a creative task: vector art, photo editing, RAW development, motion graphics, video, layout, PDF, documents, spreadsheets, slides, audio, CAD. Routes to the app's own skill."
+description: "Pick the right storytold Crafting App for a creative task: vector art, photo editing, RAW development, motion graphics, video, layout, PDF, documents, spreadsheets, slides, audio, CAD, UI design. Routes to the app's own skill."
 license: MIT
 ---
 
 # storytold Crafting Apps: which one?
 
-The storytold Crafting Apps are twelve free, open-source creative tools. Each has a desktop app, a CLI and an
+The storytold Crafting Apps are thirteen free, open-source creative tools. Each has a desktop app, a CLI and an
 MCP server (`<app>-cli mcp`, which Claude Code exposes as `mcp__<app>__*` tools). Each also has its own skill. Use
 this table to pick one, then **load that app's skill** before you start working.
 
@@ -26,6 +26,7 @@ this table to pick one, then **load that app's skill** before you start working.
 | A slide deck or presentation, .pptx | DeckCraft | `deckcraft` |
 | Audio: podcast edit, mix, mastering, sound design, WAV/MP3 | SoundCraft | `soundcraft` |
 | A precise technical drawing: floor plan, part, DXF/DWG, dimensions | CADCraft | `cadcraft` |
+| A UI design: app or web screen, wireframe, mockup, prototype, component library, design tokens, .fig | FigCraft | `figcraft` |
 
 ## Tie-breakers
 
@@ -38,6 +39,9 @@ this table to pick one, then **load that app's skill** before you start working.
   an existing PDF, use PdfCraft.
 - **Documents:** prose is WordCraft. Numbers and calculations are GridCraft. Something to present is DeckCraft.
 - **Drawings to scale** with real units and dimensions are CADCraft, not VectorCraft.
+- **Screens vs artwork:** app and web screens, components with variants, auto layout and clickable prototypes are
+  FigCraft. A standalone logo, icon or illustration is VectorCraft. Draw the icon in VectorCraft and import the SVG
+  into FigCraft.
 
 Bigger jobs often combine apps: build a chart in GridCraft and place it in DeckCraft or DesignCraft, or
 design a logo in VectorCraft and animate it in EffectCraft. Use each app's native save for its master, and
@@ -47,5 +51,5 @@ pass files between apps in open formats (SVG, PDF, PNG, WAV, MP4, CSV).
 
 All of these skills come in the `storytold` plugin. The apps themselves are separate: if the app you need has no
 `mcp__<app>__*` tools and `<app>-cli --version` fails, load the `storytold-install` skill and run `setup <app>`,
-or `setup` on its own for all twelve. It installs the app, puts it on PATH, checks the MCP server and registers
+or `setup` on its own for all thirteen. It installs the app, puts it on PATH, checks the MCP server and registers
 it with Claude Code. The user then restarts Claude Code so the tools load.
