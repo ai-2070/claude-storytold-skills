@@ -1,0 +1,97 @@
+.claude-plugin/marketplace.json
+  s_b9e9bff4731d74::t_6c79962a636a11 12
+README.md
+  s_b9e9bff4731d74::t_f6b9c230854f8c 57,98-99
+plugins/storytold/.claude-plugin/plugin.json
+  s_b9e9bff4731d74::t_ed1bda4a89b70e 3
+plugins/storytold/skills/cadcraft/SKILL.md
+  s_b9e9bff4731d74::t_d2d7b6fcff129c 12,41-46,58,75-76,82-83,103-104,110,120-121,151-152,159,184,189-191,199-201,224-227,253-254,262,265
+plugins/storytold/skills/cadcraft/references/commands.md
+  s_b9e9bff4731d74::t_332ce03111bb96 3,12,20-22,27,29,121-122,133-136,141,154,261-264,319,347,350,353-357,363-365,425,466
+plugins/storytold/skills/deckcraft/SKILL.md
+  s_b9e9bff4731d74::t_4c75110957d2fc 11,55,62,73,94-97,184-186,194-195,208,228,230-233,255,257
+plugins/storytold/skills/deckcraft/references/catalogs.md
+  s_b9e9bff4731d74::t_91ce4e2ea7e2d5 3,15,17,19-20,22-24,30
+plugins/storytold/skills/deckcraft/references/commands.md
+  s_b9e9bff4731d74::t_0045461960e617 3,8,19-20,97,149,161-166,172-175,197
+plugins/storytold/skills/designcraft/SKILL.md
+  s_b9e9bff4731d74::t_9c749f0353f507 12,53,57-58,71,77,88-93,102-104,215,224-226,242-245,263
+plugins/storytold/skills/designcraft/references/commands.md
+  s_b9e9bff4731d74::t_f6a8d8edc302df 3,74,121,184,198,343-344,357,384,394-397,489,537-538,558-562,568-570,601,604,610-612,624
+plugins/storytold/skills/effectcraft/SKILL.md
+  s_b9e9bff4731d74::t_9160abff0a3a3c 12,20-21,62,105-106,117-118,129,207,236-249,309-310,326-328
+plugins/storytold/skills/effectcraft/references/commands.md
+  s_b9e9bff4731d74::t_0ba78a8e49e069 3,10,65,95,120,153-154,158-161,224,239,250,260,273,276,314,328,364,374-375,392-393,397-402,419,424,441-444,465,540-547,603,617,762,766,769,774-775,816-817,820-827,830,838-842,859
+plugins/storytold/skills/effectcraft/references/effects.md
+  s_b9e9bff4731d74::t_1abcf47f3de14e 3,227
+plugins/storytold/skills/figcraft/SKILL.md
+  s_b9e9bff4731d74::t_2e837ac30b0b92 3,19,21-22,52-53,56,72,89-91,100-116,216-225,235-236,243,271-275,281,296
+plugins/storytold/skills/figcraft/references/commands.md
+  s_b9e9bff4731d74::t_c0009d925116de 3,10,68,83,90-93,126,139,203,217,220,255,267,271,354-355,413,416,493,500-503,630,695-696,705,713
+plugins/storytold/skills/figcraft/references/node-properties.md
+  s_b9e9bff4731d74::t_686cff73908a3b 3,94
+plugins/storytold/skills/filmcraft/SKILL.md
+  s_b9e9bff4731d74::t_fffc29c2dfb5ed 52,83-85,151,195,198-202,225-227,233,236-237,251-253,257-259,271
+plugins/storytold/skills/filmcraft/references/commands.md
+  s_b9e9bff4731d74::t_ab41bc635c4cc1 3,149,280-297,306-309
+plugins/storytold/skills/filmcraft/references/effects.md
+  s_b9e9bff4731d74::t_cd09594e8674b0 3
+plugins/storytold/skills/gridcraft/SKILL.md
+  s_b9e9bff4731d74::t_4f6ef56aacea5c 12,55,68,76,79,108,159-160,167-168,185-190,199-200,212-213,235,242-247,265,287,289
+plugins/storytold/skills/gridcraft/references/commands.md
+  s_b9e9bff4731d74::t_bfed04f4f21ba2 3,169,219-222,272-273,284,408
+plugins/storytold/skills/gridcraft/references/functions.md
+  s_b9e9bff4731d74::t_bfedabb791b6e7 3,50
+plugins/storytold/skills/lightcraft/SKILL.md
+  s_b9e9bff4731d74::t_3cce351228f540 12,52,68,71-72,215,233-235,242,253,287,293-294,309
+plugins/storytold/skills/lightcraft/references/commands.md
+  s_b9e9bff4731d74::t_769eaf0cfd161a 3,187-190,243-244,345,379
+plugins/storytold/skills/lightcraft/references/controls.md
+  s_b9e9bff4731d74::t_57f01eb617f10b 3
+plugins/storytold/skills/pdfcraft/SKILL.md
+  s_b9e9bff4731d74::t_9c155e8366defe 10,23,43,54-56,75,100,106,167,184,205-215,233-235,237,246-247,256,262-263,277,280,289,292-293,297-298,300-301,305-307,311-312
+plugins/storytold/skills/pdfcraft/references/actions-and-commands.md
+  s_b9e9bff4731d74::t_e5c525d2a93190 3,28,81-82,188
+plugins/storytold/skills/pdfcraft/references/tools.md
+  s_b9e9bff4731d74::t_fa470be71311c2 3,49,140-141,498-499,1021-1024,1135,1147-1159
+plugins/storytold/skills/photocraft/SKILL.md
+  s_b9e9bff4731d74::t_d9a157b746d0ae 12,48,66,84,88,128-131,184-186,236-238,243,246-247,262,269,281-282,285-287,290-293,304-305,316
+plugins/storytold/skills/photocraft/references/commands.md
+  s_b9e9bff4731d74::t_89319577e1378f 3,13-20,22-23,34,119,125,127,135,147,203,219,226-227,235,246,251,269-273,277-278,470,477,484,510,566,568,577,600,681,683,710,714,771,781,802,810,847,874,890,921,952,954,959,977,1050,1064,1079-1080,1154-1155
+plugins/storytold/skills/soundcraft/SKILL.md
+  s_b9e9bff4731d74::t_49eebf177f477b 42-50,61,141,171,198-200,206-208,236,242-243,270-272,291
+plugins/storytold/skills/soundcraft/references/commands.md
+  s_b9e9bff4731d74::t_fa9824388e379d 3,67-68,85,87,91-94,96-97,124,126-127,135,182-183,189-191,236-237,258,267,274,287,339,445,447,528
+plugins/storytold/skills/soundcraft/references/plugins.md
+  s_b9e9bff4731d74::t_8a048130716bb2 3,305
+plugins/storytold/skills/storytold-install/SKILL.md
+  s_b9e9bff4731d74::t_1dd962a6273d5c 55,118-122
+plugins/storytold/skills/storytold-install/scripts/storytold_tools.py
+  s_b9e9bff4731d74::t_e7be37be4a031c 206-215,254-258
+plugins/storytold/skills/vectorcraft/SKILL.md
+  s_b9e9bff4731d74::t_61fb2f23ccb81e 11,55,70,82,122-127,205-209,234,243-245,255-259,264-265,285-286,288
+plugins/storytold/skills/vectorcraft/references/commands.md
+  s_b9e9bff4731d74::t_1bc18ab51a457c 3,10-18,21-22,31,36,53-54,60-61,63,67,72-74,93,97,100,106,116-118,136,138,144,146,150-151,153,156-158,160,162,178-179,198-204,212,215-217,219,223,227-228,231,237-238,248,257,259,264,270,289,306-309,311-317,322,327,330,334,338-340,342,344,356-357,372,382-388,401-406,408,430-432,451,457,465,467,477-478,480-481,484,488,494,498-499,511-512,514-516,521,526,537-540,543-544,546-549,552-556,563-565,579-580,583,601,611,616,623,627-631,639,653-654,668,670,675,680-681,684-688,701,704,750-751,755-756,765-768,775-776,781,788,793,798,815,817-819,822,830-832,834-835,839,853-855,861,865,888,890-896
+plugins/storytold/skills/vectorcraft/references/effects.md
+  s_b9e9bff4731d74::t_31369ba8533736 3,9-12,22
+plugins/storytold/skills/wordcraft/SKILL.md
+  s_b9e9bff4731d74::t_6e001521c10f23 11,51,105-106,196,224,234,236,253-255,267-269,294
+plugins/storytold/skills/wordcraft/references/commands.md
+  s_b9e9bff4731d74::t_92e759b31ae4e1 3,8,473-474,485-486
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f6e10811089082925959ea9bb3035cda696253c6",
+  "prompts": {},
+  "sessions": {
+    "s_b9e9bff4731d74": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dde7f163-fdfb-4a3f-91b5-4c1c5ce6ec95",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "LZL0 <12474488+LZL0@users.noreply.github.com>"
+    }
+  }
+}
