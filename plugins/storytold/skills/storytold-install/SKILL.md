@@ -52,7 +52,7 @@ Leave `APP` out to act on all thirteen apps. Every command prints one JSON objec
 |---|---|---|---|
 | Release asset | `<app>-<ver>-windows-<arch>-portable.zip` | `<app>-<ver>-<os>-<arch>.tar.gz` | `<app>-cli-<ver>-macos-universal.zip` (CLI only) |
 | Unpacked to | `%LOCALAPPDATA%\storytold\apps\<app>\<ver>` | `~/.local/share/storytold/apps/…` | `~/Library/Application Support/storytold/apps/…` |
-| On PATH as | `%LOCALAPPDATA%\storytold\bin` (hard links) | `~/.local/bin` (symlinks) | `~/.local/bin` (symlinks) |
+| On PATH as | `%LOCALAPPDATA%\storytold\bin` (hard links, plus a `models` junction for PdfCraft's OCR) | `~/.local/bin` (symlinks) | `~/.local/bin` (symlinks) |
 | PATH persisted in | `HKCU\Environment\Path` | `~/.profile`, `~/.bashrc`, `~/.zshrc`, fish `conf.d` | same |
 
 To change the locations, set `STORYTOLD_HOME` (install root) and `STORYTOLD_BIN` (bin dir). Set `GITHUB_TOKEN`
@@ -115,6 +115,11 @@ if the GitHub API rate limit (60 requests an hour without a token) gets in the w
   first regular `python.exe` on PATH, or refuses to run if there isn't one.
 - **macOS** releases have only the CLI as a zip. The desktop app is a `.dmg`, so point the user to
   `https://github.com/storytold/<app>/releases/latest` to install the GUI.
+- **MSI installs aren't on PATH (Windows).** The `.msi` puts `<app>.exe` and `<app>-cli.exe` in
+  `C:\Program Files\<App>\` and doesn't add that folder to PATH. If this skill's bin dir also has the app, the
+  bin copy wins on PATH and in every MCP registration, even when the MSI is newer. `status` reports the bin
+  copy. Run `install <app>` to bring the bin copy up to date. Running `--version` on both copies shows which
+  is newer.
 - **Name clash.** `register` won't overwrite an existing MCP server with the same name. Pass `--replace`
   to swap it for a user-scope entry.
 - **Stdout is protocol-only.** The servers log to stderr. When `verify` fails it includes `stderr_tail`,

@@ -49,7 +49,7 @@ with content). For the user to watch live, they run `filmcraft --control 9876` a
   with sound; they are linked). Ids are plain integers; read them from replies or `doc_inspect`.
 - **Time is ticks: 254016000000 per second.** Most commands also accept `seconds`, `frame` or `timecode`.
   Ticks must be **integers**. Clip `start`/`end` are sequence time; `sourceIn`/`sourceOut` are media time.
-- **Every edit is a command** (700). Discover with `command_list {filter}`, run with `command_run {id, params}`, or
+- **Every edit is a command** (701). Discover with `command_list {filter}`, run with `command_run {id, params}`, or
   several with `command_batch`. Unknown ids/tracks are errors, never a different target.
 - **Linked selection is on:** an edit to a video clip also hits its linked audio (razor cuts both, gain sets both).
 - **Sync lock is on for every track:** ripple edits refuse to run if they would push a clip on another track out of
@@ -80,7 +80,9 @@ unknown arguments (`unknown argument "text" for media_import; expected: bin, ima
   → `{clips, placed: [[v, a], …]}`.
 - **Cut and trim:** `timeline.razor {seconds, track?}` (all unlocked tracks), `timeline.trim {clip, edge: in|out,
   mode: regular|ripple, delta: ticks | deltaFrames}`, `edit.rippleDelete {clips}`, `edit.clear {clips}`,
-  `sequence.closeGap {track, time}`, `timeline.move {moves:[{clip, track, time}]}`.
+  `sequence.closeGap {track, time}`, `timeline.move {moves:[{clip, track, time}]}`. `edit.rippleDeleteHead {clips}`
+  cuts a clip from its in point to the playhead (`playhead.set {seconds}`) and closes the gap; a playhead at or
+  before the in point is refused (`the playhead is at or before the clip's in point`).
 - **Speed:** `clip.speedDuration {clips, speed: 200, ripple: true, reverse?}`.
 - **Transitions:** `sequence.applyVideoTransition {clip, edge: "out", effect: "Cross Dissolve", frames: 20}` on the
   outgoing clip (it ends at the cut). `sequence.applyAudioTransition {clip, frames}` goes on the clip's **in** edge, so
@@ -146,7 +148,7 @@ command_run file.exportMedia {path:"/abs/edit.mp4", format:"h264", wait:true}   
 
 ### Recipe: transcript cleanup and burned-in captions (tested)
 
-The 0.7.2 release still has **no speech-to-text** (`transcript.generate`: "command `transcript.generate` is not
+The 0.8.0 release still has **no speech-to-text** (`transcript.generate`: "command `transcript.generate` is not
 available right now: speech-to-text is not available in this build (built without the `whisper` feature); import a
 transcript with transcript.set instead"). Bring word timings from elsewhere:
 
@@ -190,10 +192,14 @@ Place the picture with `timeline.place {item, track:"V1", audio:false}` so its o
   **Pass `format`** (`h264`, `prores`, `dnxhr`, `gif`, `png`, `exr`, `wav`, `flac`, `aac`, …): through MCP the extension
   is not used, and `x.wav` without `format` becomes an H.264 `x.wav.mp4`. A `preset` sets the format too. Without
   `wait` it returns `{job}` at once; poll `jobs.list`. Image sequences write `name000.png`, `name001.png`, ….
-- Tested on 0.7.2: `h264` (+ `crf`), `prores` (.mov, HQ + PCM), `gif`, `png` sequence, `wav`, `flac`, `aac` (.m4a),
+- Tested on 0.8.0: `h264` (+ `crf`), `prores` (.mov, HQ + PCM), `gif`, `png` sequence, `wav`, `flac`, `aac` (.m4a),
   `loudnessLufs: -14` (measured -14.0 LUFS), preset "YouTube 1080p Full HD". `file.exportFrame {path, format: "jpeg",
   time}` writes one still.
-- Presets: `filmcraft-cli export --list-presets youtube` (e.g. "YouTube 1080p Full HD").
+- **32-bit audio:** `settings: {audio: {bits: 32, float: true}}` writes 32-bit float PCM (tested: WAV → `pcm_f32le`);
+  `bits` takes 16, 24 or 32. WAV, AIFF and QuickTime PCM take float; FLAC and MXF refuse it ("unsupported: FLAC audio
+  has no 32 bit float samples: choose 16, 24 or 32 bit").
+- Presets: `filmcraft-cli export --list-presets youtube` (e.g. "YouTube 1080p Full HD"). The query matches the name or
+  the format id (`--list-presets prores` lists the 8 ProRes presets).
 - Encode: H.264, ProRes, DNxHR, APV, MJPEG, MXF, PNG/TIFF/BMP/JPEG/TGA/DPX/EXR sequences, GIF, WAV/AIFF/FLAC/AAC.
   HEVC export needs a hardware encoder (NVENC, VA-API). Decode adds HEVC, VP9, AV1, MP3/Ogg, MPEG-2, animated GIF/APNG.
 - Interchange (tested): `file.exportInterchange {format: xml|fcpxml|otio|edl|aaf|omf, path}` → `{bytes, report}`;
@@ -216,16 +222,19 @@ filmcraft-cli commands razor · filmcraft-cli describe timeline.trim · filmcraf
 
 `key=value` values parse as JSON when they can; `--compact` prints one-line JSON. Edits are discarded unless you pass
 `--save` / `--save-as`. `export` and `render` exit 1 when a clip's media is offline (placeholder frames) unless
-`--allow-offline`.
+`--allow-offline`. The extension picks the format for `.mp4`, `.mov`, `.wav`, `.aiff`, `.m4a`, `.aac`, `.gif`, but not
+`.flac` ("give --preset or --format (unknown extension)"): pass `--format flac`. `--end` needs `--start` too.
+A `--preset` sets the format: `out.mov` with an H.264 preset becomes `out.mov.mp4`.
 
 ## Pitfalls
 
 - **Paths:** absolute everywhere (`media_import`, `file.save`, exports, `tts.create dir`). The server's cwd is not yours.
 - **MCP exports ignore the extension.** `file.exportMedia {path: "x.wav"}` writes H.264 to `x.wav.mp4` (the reply's
-  `path` shows it). Always pass `format` (or a `preset`). The CLI `export` does go by the extension.
+  `path` shows it). Always pass `format` (or a `preset`). The CLI `export` does go by the extension (except `.flac`).
 - **Ripple edits and sync lock:** with music already on A2, `timeline.trim … mode:"ripple"` fails with `edit failed: this
   edit would break sync: A2 is sync-locked and has a clip in the way (turn off its sync lock, or lock the track, to
-  make this edit)`. Place music last, or `timeline.setTrack {track:"A2", syncLock:false}`.
+  make this edit)`. `edit.rippleDeleteHead` and title tracks (V2) block the same way. Place music and titles last, or
+  `timeline.setTrack {track:"A2", syncLock:false}`.
 - **Ticks must be integers.** `delta: -889056000000.0` (a float) is silently ignored (`{"delta": 0}`). Use integer
   ticks, `deltaFrames`, or `seconds`.
 - **Keyframes need the stopwatch:** `effects.setParam` with `seconds` on a non-animated param just sets the static
@@ -239,14 +248,15 @@ filmcraft-cli commands razor · filmcraft-cli describe timeline.trim · filmcraf
 - **Exporting an empty sequence "succeeds"** with a 1-frame file. Check `frames` in the export result.
 - **`tts.edit` keeps the clip's old length.** A longer new line is cut off: the reply shows `duration` (the clip) and
   `fileDuration` (the new WAV). Extend it with `timeline.trim {clip, edge:"out", mode:"ripple", delta: fileDuration -
-  duration}`. `tts.edit`/`tts.inspect` need `clip` once the selection has moved ("select a narration clip (or pass
-  `clip`)"). Without `dir`, an unsaved project writes narrations to `%TEMP%\FilmCraft\Narrations`; a saved one next to
+  duration}`. `tts.edit`/`tts.inspect` need `clip` once the selection has moved (`tts.edit`: "command `tts.edit` is
+  not available right now: select a narration clip"; `tts.inspect`: "pass `item` or `clip`, or select a narration
+  clip"). Without `dir`, an unsaved project writes narrations to `%TEMP%\FilmCraft\Narrations`; a saved one next to
   the `.fcproj`.
 - `sequence_inspect` dumps every clip's effects; extract `start/end/sourceIn/sourceOut` per track instead of reading it all.
 - Many edit commands return `null` on success; that's normal. `render_frame` returns the image plus "rendered frame".
-- Release builds have no speech models: `transcript.generate` (no `whisper` feature), `transcript.downloadModel` ("model
-  downloads are not available in this build (built without the `speech-download` feature)") and `tts.downloadVoices`
-  (no `neural-voices` feature). `transcript.models` reports `available: false`. Use `transcript.set` or
+- Release builds (0.8.0 too) have no speech models: `transcript.generate` (no `whisper` feature),
+  `transcript.downloadModel` ("model downloads are not available in this build (built without the `speech-download`
+  feature)"), `tts.downloadVoices` (no `neural-voices` feature) and the `kokoro-*` voices (no `kokoro` feature). `transcript.models` reports `available: false`. Use `transcript.set` or
   `captions.import`, and the `basic-*` voices.
 
 ## Verification
@@ -258,7 +268,7 @@ filmcraft-cli commands razor · filmcraft-cli describe timeline.trim · filmcraf
 
 ## References
 
-- `${CLAUDE_SKILL_DIR}/references/commands.md`: all 700 commands with params, grouped by prefix (`timeline`, `clip`, `sequence`,
+- `${CLAUDE_SKILL_DIR}/references/commands.md`: all 701 commands with params, grouped by prefix (`timeline`, `clip`, `sequence`,
   `graphics`, `captions`, `transcript`, `tts`, `export`…). Grep it rather than reading it whole.
 - `${CLAUDE_SKILL_DIR}/references/effects.md`: 130 video effects, 112 video transitions, 58 audio effects, 3 audio transitions with param
   ids and defaults. Grep it too.
